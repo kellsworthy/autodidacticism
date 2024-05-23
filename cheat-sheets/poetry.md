@@ -11,14 +11,17 @@ Poetry is what I chose to manage packages, virtual environments, and dependencie
 1. Create a folder where I'd like my project to be located (or open an existing folder).
 2. Use `poetry new [project-name] --src` to create the project.
     - The `--src` will use a `src` layout. See the [Python Packaging User Guide](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/) for more details.
-3. Use `poetry init` to create a virtual environment specific to the project.
+3. Use `poetry init` or `poetry env use python3` to create a virtual environment specific to the project.
     - I can also specify initial packages an dependencies. Use `--help` to learn these commands.
 4. **VS Code** should automatically detect the environment and make it available to select as the project's Python interpreter.
 5. If using Poetry only for dependency management, set the `package-mode` to `true` in the `pyproject.toml` file.
     - Skip this step if using Poetry for packaging and/or publishing.
+6. Use `poetry env info --path` to display the virtual environment information and confirm that it is located in your project.
 
 ## While working
 
+- Confirm you are using the correct interpreter by running `which python3` in the project's terminal.
+- Confirm you are using the correct virtual environment by running `poetry env info --path`.
 - Use `poetry add [package-name]` to find a [PyPI](https://pypi.org) package, install it, and automatically add it to the project's dependencies.
 - Use `poetry run [your_script.py | command-line-tool-name]` to run Python scripts or command line tools.
 - Use `poetry install` to resolve all dependencies listed in the `pyproject.toml` file, downloads their latest versions, and writes all packages/versions to a `poetry.lock` file.
